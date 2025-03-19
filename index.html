@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        // Function to preload images
+        function preloadImages(urls) {
+            urls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="flowers" id="flowers"></div>
+    
+    <!-- Hidden images for floating elements -->
+    <div style="display: none;" id="memory-images">
+        <img src="img/photo_2025-03-20_06-19-55 (2).jpg" alt="memory">
+        <img src="img/photo_2025-03-20_06-19-55 (3).jpg" alt="memory">
+        <img src="img/photo_2025-03-20_06-19-55.jpg" alt="memory">
+        <img src="img/photo_2025-03-20_06-19-56 (2).jpg" alt="memory">
+        <img src="img/photo_2025-03-20_06-19-56 (3).jpg" alt="memory">
+        <img src="img/photo_2025-03-20_06-19-56 (4).jpg" alt="memory">
+        <img src="img/photo_2025-03-20_06-19-56 (5).jpg" alt="memory">
+        <img src="img/photo_2025-03-20_06-19-56.jpg" alt="memory">
+        <img src="img/photo_2025-03-20_06-19-57 (2).jpg" alt="memory">
+        <img src="img/photo_2025-03-20_06-19-57.jpg" alt="memory">
+    </div>
+    
+    <div class="container">
+        <div class="content">
+            <div class="profile-pic">
+                <img src="img/photo_2025-03-20_06-19-56 (5).jpg" alt="Profile Picture">
+            </div>
+            <h2 class="question">Please love me back Chhuyhaun?</h2>
+            <div class="buttons">
+                <button class="yes-btn" onclick="accepted()">Yes</button>
+                <button class="no-btn" onclick="changeText()">No</button>
+            </div>
+        </div>
+        <div class="credit">by Mean Chengleang</div>
+    </div>
+</body>
+</html>
