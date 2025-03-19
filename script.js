@@ -114,15 +114,31 @@ function changeText() {
 }
 
 function accepted() {
-    alert('Thank you for saying Yes! 💝');
-    document.querySelector('.content').innerHTML = '<h1 style="color: #4F94CD;">💝 Thank you for accepting! 💝</h1>';
+    const thankYouMessages = [
+        "Thank you for loving me back! 💝",
+        "You make my heart complete 💖",
+        "Together forever 💘",
+        "I'll cherish you always 💕",
+        "You're my everything 💗"
+    ];
+    
+    document.querySelector('.content').innerHTML = `
+        <div class="thank-you-container">
+            <h1 style="color: #4F94CD; margin-bottom: 30px;">💝 Thank you for saying Yes! 💝</h1>
+            <div class="message-container">
+                ${thankYouMessages.map((msg, index) => 
+                    `<p class="thank-you-message" style="animation-delay: ${index * 0.5}s">${msg}</p>`
+                ).join('')}
+            </div>
+        </div>
+    `;
     
     // Clear all existing flowers before celebration
     document.getElementById('flowers').innerHTML = '';
     
-    // Add temporary celebration elements
-    for(let i = 0; i < 50; i++) {
-        setTimeout(createFloatingElement, i * 100);
+    // Add lots of celebration elements
+    for(let i = 0; i < 100; i++) {
+        setTimeout(createFloatingElement, i * 50);
     }
 }
 

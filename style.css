@@ -210,6 +210,35 @@ button {
     transition: transform 0.3s ease;
 }
 
+.thank-you-container {
+    text-align: center;
+}
+
+.message-container {
+    margin-top: 20px;
+}
+
+.thank-you-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    color: #1e4d6b;
+    margin: 15px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media screen and (max-width: 480px) {
     .content {
         padding: 30px 20px;
