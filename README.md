@@ -9,7 +9,7 @@ A beautiful interactive love proposal website with floating images and animation
 - Beautiful animations
 
 ## Live Demo
-Visit: https://meanchengleang.github.io/propose
+Visit: https://Meanchengleang.github.io/propose/
 
 ## Creator
 Created with 💝 by Mean Chengleang
