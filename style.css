@@ -335,6 +335,7 @@ button {
         margin-top: 15px;
         flex-direction: column;  /* Stack buttons on mobile */
         align-items: center;
+        width: 100%;
     }
 
     button {
@@ -346,15 +347,20 @@ button {
         height: 50px;  /* Shorter height on mobile */
     }
 
-    .no-btn {
-        padding: 10px 15px;
-        font-size: 14px;
-        min-height: 45px;
-        line-height: 1.2;
-        white-space: normal;
+    .yes-btn, .no-btn {
         width: 85%;
         max-width: 280px;
+        min-height: 45px;
+        padding: 10px 15px;
+        font-size: 14px;
         height: auto;
+        margin: 5px auto;
+    }
+
+    .no-btn {
+        line-height: 1.2;
+        white-space: normal;
+        word-wrap: break-word;
     }
 
     .flower {
