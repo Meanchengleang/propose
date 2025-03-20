@@ -200,6 +200,7 @@ button {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(135, 206, 235, 0.4);
     transform-origin: center;
+    transition: opacity 1s ease;  /* Add this line */
 }
 
 .floating-image img {

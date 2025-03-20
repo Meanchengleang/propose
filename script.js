@@ -30,6 +30,12 @@ function createFloatingElement(isPersistent = false) {
         img.src = images[Math.floor(Math.random() * images.length)];
         img.loading = "lazy";
         element.appendChild(img);
+        
+        // Add fade out animation after appearing
+        setTimeout(() => {
+            element.style.opacity = '0';
+            setTimeout(() => element.remove(), 1000);
+        }, 3000);
     } else {
         element.className = 'flower';
         element.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
