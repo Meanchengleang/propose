@@ -88,11 +88,12 @@ function changeText() {
     const noBtn = document.querySelector('.no-btn');
     const yesBtn = document.querySelector('.yes-btn');
     
-    // Get yes button width for mobile
-    const isMobile = window.innerWidth < 768;
-    if (isMobile) {
+    // Check if it's a modern phone (iPhone 11, S21, etc.)
+    const isModernPhone = window.innerWidth <= 767 && window.innerHeight >= 800;
+    
+    if (isModernPhone) {
         noBtn.style.width = '100%';
-        yesBtn.style.width = '100%';
+        noBtn.style.maxWidth = '300px';
     } else {
         // Get yes button height
         const yesHeight = yesBtn.offsetHeight;
@@ -103,9 +104,9 @@ function changeText() {
         }
         
         // Adjust size calculations for mobile
-        const maxButtonWidth = isMobile ? window.innerWidth * 0.85 : 600;
-        const minButtonWidth = isMobile ? 140 : 200;
-        const fontSize = isMobile ? 14 : Math.min(buttonSize * 0.3, 24);
+        const maxButtonWidth = window.innerWidth < 768 ? window.innerWidth * 0.85 : 600;
+        const minButtonWidth = window.innerWidth < 768 ? 140 : 200;
+        const fontSize = window.innerWidth < 768 ? 14 : Math.min(buttonSize * 0.3, 24);
         
         // Calculate sizes based on text length
         const text = noTexts[currentIndex % noTexts.length];
