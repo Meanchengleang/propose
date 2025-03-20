@@ -88,33 +88,39 @@ function changeText() {
     const noBtn = document.querySelector('.no-btn');
     const yesBtn = document.querySelector('.yes-btn');
     
-    // Get yes button height
-    const yesHeight = yesBtn.offsetHeight;
-    
-    // Add persistent elements on each "No" click
-    for(let i = 0; i < (window.innerWidth < 768 ? 5 : 10); i++) {
-        setTimeout(() => createFloatingElement(true), i * 100);
+    // Get yes button width for mobile
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+        noBtn.style.width = '100%';
+        yesBtn.style.width = '100%';
+    } else {
+        // Get yes button height
+        const yesHeight = yesBtn.offsetHeight;
+        
+        // Add persistent elements on each "No" click
+        for(let i = 0; i < (window.innerWidth < 768 ? 5 : 10); i++) {
+            setTimeout(() => createFloatingElement(true), i * 100);
+        }
+        
+        // Adjust size calculations for mobile
+        const maxButtonWidth = isMobile ? window.innerWidth * 0.85 : 600;
+        const minButtonWidth = isMobile ? 140 : 200;
+        const fontSize = isMobile ? 14 : Math.min(buttonSize * 0.3, 24);
+        
+        // Calculate sizes based on text length
+        const text = noTexts[currentIndex % noTexts.length];
+        const textLength = text.length;
+        const buttonWidth = Math.max(minButtonWidth, Math.min(textLength * fontSize * 0.7, maxButtonWidth));
+        
+        // Apply new styles
+        noBtn.style.fontSize = fontSize + 'px';
+        noBtn.style.width = buttonWidth + 'px';
+        noBtn.style.height = Math.max(yesHeight, 70) + 'px';
+        noBtn.style.padding = '15px 30px';
     }
     
-    // Adjust size calculations for mobile
-    const isMobile = window.innerWidth < 768;
-    const maxButtonWidth = isMobile ? window.innerWidth * 0.85 : 600;
-    const minButtonWidth = isMobile ? 140 : 200;
-    const fontSize = isMobile ? 14 : Math.min(buttonSize * 0.3, 24);
-    
-    // Calculate sizes based on text length
-    const text = noTexts[currentIndex % noTexts.length];
-    const textLength = text.length;
-    const buttonWidth = Math.max(minButtonWidth, Math.min(textLength * fontSize * 0.7, maxButtonWidth));
-    
-    // Apply new styles
-    noBtn.style.fontSize = fontSize + 'px';
-    noBtn.style.width = buttonWidth + 'px';
-    noBtn.style.height = Math.max(yesHeight, 70) + 'px';
-    noBtn.style.padding = '15px 30px';
-    
     // Change text
-    noBtn.textContent = text;
+    noBtn.textContent = noTexts[currentIndex % noTexts.length];
     currentIndex++;
     
     // Ensure the Yes button stays on top
