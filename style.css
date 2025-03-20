@@ -346,6 +346,17 @@ button {
         height: 50px;  /* Shorter height on mobile */
     }
 
+    .no-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+        min-height: 45px;
+        line-height: 1.2;
+        white-space: normal;
+        width: 85%;
+        max-width: 280px;
+        height: auto;
+    }
+
     .flower {
         font-size: 14px !important;
     }

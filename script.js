@@ -98,13 +98,13 @@ function changeText() {
     
     // Adjust size calculations for mobile
     const isMobile = window.innerWidth < 768;
-    const maxButtonWidth = isMobile ? window.innerWidth * 0.8 : 600;
-    const minButtonWidth = isMobile ? 150 : 200;
+    const maxButtonWidth = isMobile ? window.innerWidth * 0.85 : 600;
+    const minButtonWidth = isMobile ? 140 : 200;
+    const fontSize = isMobile ? 14 : Math.min(buttonSize * 0.3, 24);
     
     // Calculate sizes based on text length
     const text = noTexts[currentIndex % noTexts.length];
     const textLength = text.length;
-    const fontSize = Math.min(buttonSize * (isMobile ? 0.2 : 0.3), isMobile ? 16 : 24);
     const buttonWidth = Math.max(minButtonWidth, Math.min(textLength * fontSize * 0.7, maxButtonWidth));
     
     // Apply new styles
