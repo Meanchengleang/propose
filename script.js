@@ -92,18 +92,20 @@ function changeText() {
     const yesHeight = yesBtn.offsetHeight;
     
     // Add persistent elements on each "No" click
-    for(let i = 0; i < 10; i++) {
+    for(let i = 0; i < (window.innerWidth < 768 ? 5 : 10); i++) {
         setTimeout(() => createFloatingElement(true), i * 100);
     }
     
-    // Increment size with a maximum limit
-    buttonSize = Math.min(buttonSize + sizeIncrement, maxSize);
+    // Adjust size calculations for mobile
+    const isMobile = window.innerWidth < 768;
+    const maxButtonWidth = isMobile ? window.innerWidth * 0.8 : 600;
+    const minButtonWidth = isMobile ? 150 : 200;
     
     // Calculate sizes based on text length
     const text = noTexts[currentIndex % noTexts.length];
     const textLength = text.length;
-    const fontSize = Math.min(buttonSize * 0.3, 24); // Reduced max font size
-    const buttonWidth = Math.max(200, Math.min(textLength * fontSize * 0.7, 600)); // Adjust width based on text
+    const fontSize = Math.min(buttonSize * (isMobile ? 0.2 : 0.3), isMobile ? 16 : 24);
+    const buttonWidth = Math.max(minButtonWidth, Math.min(textLength * fontSize * 0.7, maxButtonWidth));
     
     // Apply new styles
     noBtn.style.fontSize = fontSize + 'px';
